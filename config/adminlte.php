@@ -253,7 +253,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'dashboard',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -329,39 +329,39 @@ return [
             'icon'        => 'fas fa-fw fa-users',
             'can'         => 'admin.users.index',
         ],
-        [
-            'text'        => 'Roles',
-            'route'       => 'admin.roles.index',
-            'icon'        => 'fas fa-fw fa-bolt',
-            // 'can'         => 'admin.roles.index',
-        ],
-        [
-            'text'        => 'Usuarios Pendientes',
-            'url'         => '/pendientes',
-            'icon'        => 'fas fa-fw fa-users',
-            'label'       => 3,
-            'label_color' => 'success',
-        ],
-        [
-            'text'  => 'Registro Usuarios',
-            'icon'  => 'fas fa-fw fa-book',
-            'submenu' => [
-                [
-                    'text'        => 'Docentes',
-                    'url'         => '/docentes',
-                    'icon'        => 'fas fa-fw fa-users',
-                    // 'label'       => 4,
-                    // 'label_color' => 'success',
-                ],
-                [
-                    'text'        => 'Estudiantes',
-                    'url'         => '/estudiantes',
-                    'icon'        => 'fas fa-fw fa-user-plus',
-                    // 'label'       => 4,
-                    // 'label_color' => 'success',
-                ]
-            ]
-        ],
+        // [
+        //     'text'        => 'Roles',
+        //     'route'       => 'admin.roles.index',
+        //     'icon'        => 'fas fa-fw fa-bolt',
+        //     // 'can'         => 'admin.roles.index',
+        // ],
+        // [
+        //     'text'        => 'Usuarios Pendientes',
+        //     'url'         => '/pendientes',
+        //     'icon'        => 'fas fa-fw fa-users',
+        //     'label'       => 3,
+        //     'label_color' => 'success',
+        // ],
+        // [
+        //     'text'  => 'Registro Usuarios',
+        //     'icon'  => 'fas fa-fw fa-book',
+        //     'submenu' => [
+        //         [
+        //             'text'        => 'Docentes',
+        //             'url'         => '/docentes',
+        //             'icon'        => 'fas fa-fw fa-users',
+        //             // 'label'       => 4,
+        //             // 'label_color' => 'success',
+        //         ],
+        //         [
+        //             'text'        => 'Estudiantes',
+        //             'url'         => '/estudiantes',
+        //             'icon'        => 'fas fa-fw fa-user-plus',
+        //             // 'label'       => 4,
+        //             // 'label_color' => 'success',
+        //         ]
+        //     ]
+        // ],
         [
             'text'  => 'Acciones',
             'icon'  => 'fas fa-fw fa-plus',
@@ -384,20 +384,20 @@ return [
                             // 'label'       => 4,
                             // 'label_color' => 'success',
                         ],
-                        [
-                            'text'        => 'Actividad 1',
-                            'url'         => '#',
-                            'icon'        => 'fas fa-fw fa-puzzle-piece',
-                            // 'label'       => 4,
-                            // 'label_color' => 'success',
-                        ],
-                        [
-                            'text'        => 'Actividad 2',
-                            'url'         => '#',
-                            'icon'        => 'fas fa-fw fa-puzzle-piece',
-                            // 'label'       => 4,
-                            // 'label_color' => 'success',
-                        ]
+                        // [
+                        //     'text'        => 'Actividad 1',
+                        //     'url'         => '#',
+                        //     'icon'        => 'fas fa-fw fa-puzzle-piece',
+                        //     // 'label'       => 4,
+                        //     // 'label_color' => 'success',
+                        // ],
+                        // [
+                        //     'text'        => 'Actividad 2',
+                        //     'url'         => '#',
+                        //     'icon'        => 'fas fa-fw fa-puzzle-piece',
+                        //     // 'label'       => 4,
+                        //     // 'label_color' => 'success',
+                        // ]
                     ]
                 ],
             ]
