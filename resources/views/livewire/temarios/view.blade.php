@@ -7,12 +7,7 @@
                     <div style="display: flex; justify-content: space-between; align-items: center;">
                         <div class="float-left">
                             <h4><i class="fab fa-laravel text-info"></i>
-                                Temario Listing </h4>
-                        </div>
-                        <div wire:poll.60s>
-                            <code>
-                                <h5>{{ now()->format('H:i:s') }} UTC</h5>
-                            </code>
+                                Lista de Temarios </h4>
                         </div>
                         @if (session()->has('message'))
                             <div wire:poll.4s class="btn btn-sm btn-success" style="margin-top:0px; margin-bottom:0px;">
@@ -20,7 +15,7 @@
                         @endif
                         <div>
                             <input wire:model='keyWord' type="text" class="form-control" name="search"
-                                id="search" placeholder="Search Temarios">
+                                id="search" placeholder="Buscar Temarios">
                         </div>
                         <div class="btn btn-sm btn-info" data-toggle="modal" data-target="#createDataModal">
                             <i class="fa fa-plus"></i> Agregar Temarios
@@ -31,47 +26,62 @@
                 <div class="card-body">
                     @include('livewire.temarios.create')
                     @include('livewire.temarios.update')
-                    <div class="table-responsive">
-                        <table class="table table-striped ">
-                            <thead class="thead">
-                                <tr>
-                                    <td scope="col">#</td>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Imagen</th>
-                                    <th scope="col">Alt Imagen</th>
-                                    <th scope="col">Video</th>
-                                    <th scope="col">Contenido</th>
-                                    <th scope="col">Id Actividad</th>
-                                    <th scope="col">Id Estado</th>
-                                    <td scope="col">ACTIONS</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($temarios as $row)
+                    @if ($temarios->Count())
+                        <div class="table-responsive">
+                            <table class="table table-striped ">
+                                <thead class="thead">
                                     <tr>
+                                        <td scope="col">#</td>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Contenido</th>
+                                        <th scope="col">Actividad</th>
+                                        <th scope="col">Multimedia</th>
+                                        <th scope="col">Estado</th>
+                                        <td scope="col">ACTIONS</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($temarios as $row)
+                                        <tr></tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $row->nombre }}</td>
-                                        <td>{{ $row->imagen }}</td>
-                                        <td>{{ $row->alt_imagen }}</td>
-                                        <td>{{ $row->video }}</td>
                                         <td>{{ $row->contenido }}</td>
-                                        <td>{{ $row->id_actividad }}</td>
-                                        <td>{{ $row->id_estado }}</td>
+                                        <td>{{ $row->actividad->nombre }}</td>
+                                        <td>
+                                            @isset($row->multimedias)
+                                                @if ($row->multimedias->imagen == true)
+                                                    <img src="{{ Storage::url($row->multimedias->url) }}" alt=""
+                                                        width="80" height="80">
+                                                @else
+                                                    {{ $row->multimedias->url }}
+                                                @endif
+                                            @endisset
+                                        </td>
+                                        <td>{{ $row->estado->nombre }}</td>
                                         <td>
 
-                                            <a data-toggle="modal" data-target="#updateModal" class="btn btn-secondary"
-                                                wire:click="edit({{ $row->id }})"><i class="fa fa-edit"></i> </a>
-                                            <a class="btn btn-danger"
+                                            <a data-toggle="modal" data-target="#updateModal"
+                                                class="btn btn-secondary"data-toggle="tooltip" data-placement="bottom"
+                                                title="Editar" wire:click="edit({{ $row->id }})"><i
+                                                    class="fa fa-edit"></i>
+                                            </a>
+                                            <a class="btn btn-danger" data-toggle="tooltip" data-placement="bottom"
+                                                title="Eliminar"
                                                 onclick="confirm('¿Desea eliminar este temario? \n¡Esta acción es irreversible!')||event.stopImmediatePropagation()"
                                                 wire:click="destroy({{ $row->id }})"><i
                                                     class="fa fa-trash"></i></a>
 
                                         </td>
-                                @endforeach
-                            </tbody>
-                        </table>
-                        {{ $temarios->links() }}
-                    </div>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            {{ $temarios->links() }}
+                        </div>
+                    @else
+                        <div class="card-body">
+                            <strong>No existen datos</strong>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

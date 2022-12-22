@@ -48,7 +48,7 @@
                                             <td>
                                                 <a data-toggle="modal" data-target="#updateModal"
                                                     class="btn btn-secondary" wire:click="edit({{ $row->id }})"><i
-                                                        class="fas fa-pencil-alt"></i> </a>
+                                                        class="fa fa-edit"></i> </a>
                                                 <a class="btn btn-danger"
                                                     onclick="confirm('¿Desea eliminar éste nivel? \n¡Esta acción es irreversible!')||event.stopImmediatePropagation()"
                                                     wire:click="destroy({{ $row->id }})"><i

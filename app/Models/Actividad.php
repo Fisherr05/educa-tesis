@@ -20,7 +20,7 @@ class Actividad extends Model
      */
     public function estado()
     {
-        return $this->hasOne('App\Models\Estado', 'id', 'id_estado');
+        return $this->hasOne(Estado::class, 'id', 'id_estado');
     }
 
     /**
@@ -28,7 +28,7 @@ class Actividad extends Model
      */
     public function nivel()
     {
-        return $this->hasOne('App\Models\Nivel', 'id', 'id_nivel');
+        return $this->hasOne(Nivel::class, 'id', 'id_nivel');
     }
 
     /**
@@ -36,7 +36,7 @@ class Actividad extends Model
      */
     public function temarios()
     {
-        return $this->hasMany('App\Models\Temario', 'id_actividad', 'id');
+        return $this->hasMany(Temario::class, 'id_actividad', 'id');
     }
 
 }

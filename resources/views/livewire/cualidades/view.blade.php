@@ -11,12 +11,12 @@
                         </div>
 
                         @if (session()->has('message'))
-                            <div wire:poll.4s class="btn btn-sm btn-success" style="margin-top:0px; margin-bottom:0px;">
-                                {{ session('message') }} </div>
+                        <div wire:poll.4s class="btn btn-sm btn-success" style="margin-top:0px; margin-bottom:0px;">
+                            {{ session('message') }} </div>
                         @endif
                         <div>
-                            <input wire:model='keyWord' type="text" class="form-control" name="search"
-                                id="search" placeholder="Buscar Cualidades">
+                            <input wire:model='keyWord' type="text" class="form-control" name="search" id="search"
+                                placeholder="Buscar Cualidades">
                         </div>
                         <div class="btn btn-sm btn-info" data-toggle="modal" data-target="#createDataModal">
                             <i class="fa fa-plus"></i> Agregar Cualidades
@@ -27,6 +27,7 @@
                 <div class="card-body">
                     @include('livewire.cualidades.create')
                     @include('livewire.cualidades.update')
+                    @if ($cualidades->Count())
                     <div class="table-responsive">
                         <table class="table table-striped ">
                             <thead class="thead">
@@ -38,23 +39,30 @@
                             </thead>
                             <tbody>
                                 @foreach ($cualidades as $row)
-                                    <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $row->nombre }}</td>
-                                        <td>
-                                            <a data-toggle="modal" data-target="#updateModal" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Editar"
-                                                wire:click="edit({{ $row->id }})"><i class="fa fa-edit"></i>
-                                            </a>
-                                            <a class="btn btn-danger"data-toggle="tooltip" data-placement="bottom" title="Eliminar"
-                                                onclick="confirm('¿Desea eliminar esta cualidad? \n¡Esta acción es irreversible!')||event.stopImmediatePropagation()"
-                                                wire:click="destroy({{ $row->id }})"><i class="fa fa-trash"></i>
-                                                </a>
-                                        </td>
-                                @endforeach
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $row->nombre }}</td>
+                                    <td>
+                                        <a data-toggle="modal" data-target="#updateModal" class="btn btn-secondary"
+                                            data-toggle="tooltip" data-placement="bottom" title="Editar"
+                                            wire:click="edit({{ $row->id }})"><i class="fa fa-edit"></i>
+                                        </a>
+                                        <a class="btn btn-danger" data-toggle="tooltip" data-placement="bottom"
+                                            title="Eliminar"
+                                            onclick="confirm('¿Desea eliminar esta cualidad? \n¡Esta acción es irreversible!')||event.stopImmediatePropagation()"
+                                            wire:click="destroy({{ $row->id }})"><i class="fa fa-trash"></i>
+                                        </a>
+                                    </td>
+                                    @endforeach
                             </tbody>
                         </table>
                         {{ $cualidades->links() }}
                     </div>
+                    @else
+                    <div class="card-body">
+                        <strong>No existen datos</strong>
+                    </div>
+                    @endif
                 </div>
             </div>
         </div>

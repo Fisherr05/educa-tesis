@@ -16,9 +16,6 @@ return new class extends Migration
         Schema::create('temarios', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('imagen');
-            $table->string('alt_imagen');
-            $table->string('video');
             $table->text('contenido')->nullable();
             $table->unsignedBigInteger('id_actividad');
             $table->unsignedBigInteger('id_estado');

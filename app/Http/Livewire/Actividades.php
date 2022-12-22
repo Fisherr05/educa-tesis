@@ -31,7 +31,7 @@ class Actividades extends Component
                 ->orWhereRelation('estado', 'nombre', 'LIKE', $keyWord)
                 ->paginate(10),
             'niveles' => Nivel::all(),
-            'estados' => Estado::all(),
+            'estados' => Estado::all()
         ]);
     }
 
