@@ -53,6 +53,7 @@ class Temarios extends Component
     {
         $this->resetInput();
         $this->updateMode = false;
+        $this->resetValidation();
     }
 
     private function resetInput()
@@ -92,6 +93,7 @@ class Temarios extends Component
                 $this->rules["multimedia"] = "required";
             }
         }
+        $this->validate();
 
         $temario = Temario::create([
             'nombre' => $this->nombre,
@@ -147,11 +149,7 @@ class Temarios extends Component
             }
         }
 
-        $this->validate([
-            'nombre' => 'required',
-            'id_actividad' => 'required',
-            'id_estado' => 'required',
-        ]);
+        $this->validate();
 
 
         if ($this->selected_id) {
@@ -181,7 +179,7 @@ class Temarios extends Component
                         }
                     }
                 } else {
-                    //crea multimedia segunseleccion
+                    //crea multimedia segun seleccion
                     if ($this->imagen == true) {
                         $url = Storage::put('temarios', $this->multimedia);
                         $record->multimedias()->create(['url' => $url, 'imagen' => $this->imagen]);

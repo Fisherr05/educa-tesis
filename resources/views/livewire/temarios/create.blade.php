@@ -133,19 +133,19 @@
 </div>
 <script>
     //Al hacer clichace una preview de imagen cargada.
-    const cambiarImagen = (event, img) => {
-        const preview = document.getElementById(img);
-        //Recuperamos el input que desencadeno la acción
-        const file = event.target.files[0];
+    // const cambiarImagen = (event, img) => {
+    //     const preview = document.getElementById(img);
+    //     //Recuperamos el input que desencadeno la acción
+    //     const file = event.target.files[0];
 
-        const reader = new FileReader()
-        reader.onload = (event) => {
-            preview.setAttribute('src', event.target.result);
-        }
-        if (file) {
-            reader.readAsDataURL(file);
-        }
-    }
+    //     const reader = new FileReader()
+    //     reader.onload = (event) => {
+    //         preview.setAttribute('src', event.target.result);
+    //     }
+    //     if (file) {
+    //         reader.readAsDataURL(file);
+    //     }
+    // }
 
     const cerrar = document.getElementById("cerrar");
     cerrar.onclick = () => {
