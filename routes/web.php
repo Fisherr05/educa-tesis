@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Actividades;
+use App\Http\Controllers\Temarios;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('main.index');
 });
+Route::resource('estudiante', Actividades::class);
 
 Route::get('/info', function () {
     return view('main.informacion');
@@ -26,7 +29,7 @@ Route::get('/unidadeducativa', function () {
 Route::get('/cursos', function () {
     return view('main.cursos');
 });
-
+Route::get('/temario/{actividad}', [Temarios::class, 'porActividad'])->name('temario');
 Route::get('/dashboard',function () {return view('admin.dashboard');})->name('dashboard');
 Route::get('/docentes',function () {return view('admin.docentes.index');})->name('docentes');
 Route::get('/estudiantes',function () {return view('admin.estudiantes.index');})->name('estudiantes');

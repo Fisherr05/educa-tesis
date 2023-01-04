@@ -107,6 +107,8 @@
                                 <span class="error text-danger">{{ $message }}</span>
                             @enderror
                         </div>
+                    @else
+                        Hola imagen
                     @endif
                     @if ($video == true)
                         <div id="video" class="form-group">
@@ -117,6 +119,8 @@
                                 <span class="error text-danger">{{ $message }}</span>
                             @enderror
                         </div>
+                    @else
+                        Hola Video
                     @endif
                 </form>
             </div>

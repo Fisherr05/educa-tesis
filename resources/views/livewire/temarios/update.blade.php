@@ -14,10 +14,9 @@
                     <input type="hidden" wire:model="selected_id">
                     <div class="form-group">
                         <label for="nombre"></label>
-                        <input wire:model="nombre" type="text" class="form-control" id="nombre"
-                            placeholder="Nombre">
+                        <input wire:model="nombre" type="text" class="form-control" id="nombre" placeholder="Nombre">
                         @error('nombre')
-                            <span class="error text-danger">{{ $message }}</span>
+                        <span class="error text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="form-group">
@@ -25,7 +24,7 @@
                         <input wire:model="contenido" type="text" class="form-control" id="contenido"
                             placeholder="Contenido">
                         @error('contenido')
-                            <span class="error text-danger">{{ $message }}</span>
+                        <span class="error text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="form-group">
@@ -34,11 +33,11 @@
                             placeholder="Actividad">
                             <option hidden value="">Seleccione una actividad</option>
                             @foreach ($actividades as $id => $nombre)
-                                <option value="{{ $id }}">{{ $nombre }}</option>
+                            <option value="{{ $id }}">{{ $nombre }}</option>
                             @endforeach
                         </select>
                         @error('id_actividad')
-                            <span class="error text-danger">{{ $message }}</span>
+                        <span class="error text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="form-group">
@@ -46,11 +45,11 @@
                         <select wire:model="id_estado" id="id_estado" class="form-control" placeholder="Estado">
                             <option hidden value="">Seleccione un estado</option>
                             @foreach ($estados as $id => $nombre)
-                                <option value="{{ $id }}">{{ $nombre }}</option>
+                            <option value="{{ $id }}">{{ $nombre }}</option>
                             @endforeach
                         </select>
                         @error('id_estado')
-                            <span class="error text-danger">{{ $message }}</span>
+                        <span class="error text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="form-group">
@@ -62,29 +61,29 @@
                             <option value="2">Video</option>
                         </select>
                     </div>
-                    @if ($imagen == true)
-                        <div class="form-group">
-                            <label for="multimedia"></label>
-                            @isset($multimedia->url)
-                                <img src="{{ Storage::url($multimedia->url) }}" class="img-thumbnail" alt=""
-                                    width="100" height="100">
-                            @endisset
-                            <input wire:model="multimedia" type="file" class="form-control" id="multimedia"
-                                placeholder="Multimedia" accept="image/*">
-                            @error('multimedia')
-                                <span class="error text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
+                    @if($imagen == true)
+                    <div class="form-group">
+                        <label for="multimedia"></label>
+                        @isset($multimedia)
+                        <img src="{{ Storage::url($multimedia) }}" class="img-thumbnail" alt="" width="100"
+                            height="100">
+                        @endisset
+                        <input wire:model="multimedia" type="file" class="form-control" id="multimedia"
+                            placeholder="Multimedia" accept="image/*">
+                        @error('multimedia')
+                        <span class="error text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
                     @endif
                     @if ($video == true)
-                        <div id="video" class="form-group">
-                            <label for="multimedia"></label>
-                            <textarea wire:model="multimedia" id="multimedia" class="md-textarea form-control" rows="3"
-                                placeholder="Ingrese iframe de video"></textarea>
-                            @error('multimedia')
-                                <span class="error text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
+                    <div id="video" class="form-group">
+                        <label for="multimedia"></label>
+                        <textarea wire:model="multimedia" id="multimedia" class="md-textarea form-control" rows="3"
+                            placeholder="Ingrese iframe de video"></textarea>
+                        @error('multimedia')
+                        <span class="error text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
                     @endif
                 </form>
             </div>

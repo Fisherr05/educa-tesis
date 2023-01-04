@@ -77,6 +77,7 @@ class Temarios extends Component
                 $this->rules["multimedia"] = "image";
             }
             if ($this->seleccion == 2) {
+                $this->multimedia=null;
                 $this->video = true;
                 $this->imagen = false;
                 $this->rules["multimedia"] = "required";
@@ -129,7 +130,6 @@ class Temarios extends Component
             if ($record->multimedias->imagen == true) {
                 $this->imagen = true;
                 $this->seleccion = 1;
-                $this->multimedia=null;
             } else {
                 $this->video = true;
                 $this->seleccion = 2;

@@ -35,6 +35,7 @@ class Actividades extends Component
         ]);
     }
 
+   
     public function cancel()
     {
         $this->resetInput();
@@ -64,7 +65,7 @@ class Actividades extends Component
 
         $this->resetInput();
         $this->emit('closeModal');
-        session()->flash('message', 'Actividad Successfully created.');
+        session()->flash('message', 'Actividad creada con éxito.');
     }
 
     public function edit($id)
@@ -97,7 +98,7 @@ class Actividades extends Component
 
             $this->resetInput();
             $this->updateMode = false;
-            session()->flash('message', 'Actividad Successfully updated.');
+            session()->flash('message', 'Actividad actualizada con éxito.');
         }
     }
 
