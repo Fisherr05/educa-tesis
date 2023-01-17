@@ -329,39 +329,33 @@ return [
             'icon'        => 'fas fa-fw fa-users',
             'can'         => 'admin.users.index',
         ],
+
         // [
         //     'text'        => 'Roles',
         //     'route'       => 'admin.roles.index',
         //     'icon'        => 'fas fa-fw fa-bolt',
         //     // 'can'         => 'admin.roles.index',
         // ],
-        // [
-        //     'text'        => 'Usuarios Pendientes',
-        //     'url'         => '/pendientes',
-        //     'icon'        => 'fas fa-fw fa-users',
-        //     'label'       => 3,
-        //     'label_color' => 'success',
-        // ],
-        // [
-        //     'text'  => 'Registro Usuarios',
-        //     'icon'  => 'fas fa-fw fa-book',
-        //     'submenu' => [
-        //         [
-        //             'text'        => 'Docentes',
-        //             'url'         => '/docentes',
-        //             'icon'        => 'fas fa-fw fa-users',
-        //             // 'label'       => 4,
-        //             // 'label_color' => 'success',
-        //         ],
-        //         [
-        //             'text'        => 'Estudiantes',
-        //             'url'         => '/estudiantes',
-        //             'icon'        => 'fas fa-fw fa-user-plus',
-        //             // 'label'       => 4,
-        //             // 'label_color' => 'success',
-        //         ]
-        //     ]
-        // ],
+        [
+            'text'  => 'Registro de Usuarios',
+            'icon'  => 'fas fa-fw fa-book',
+            'submenu' => [
+                [
+                    'text'        => 'Docentes',
+                    'url'         => '/docentes',
+                    'icon'        => 'fas fa-fw fa-users',
+                    // 'label'       => 4,
+                    // 'label_color' => 'success',
+                ],
+                [
+                    'text'        => 'Estudiantes',
+                    'url'         => '/estudiante',
+                    'icon'        => 'fas fa-fw fa-user-plus',
+                    // 'label'       => 4,
+                    // 'label_color' => 'success',
+                ]
+            ]
+        ],
         [
             'text'  => 'Acciones',
             'icon'  => 'fas fa-fw fa-plus',
@@ -374,23 +368,23 @@ return [
                     // 'label_color' => 'success',
                 ],
                 [
-                    'text'  => 'Actividades',
+                    'text'  => 'Contenido',
                     'icon'  => 'fas fa-fw fa-cogs ',
                     'submenu' => [
                         [
-                            'text'        => 'Crear Actividad',
+                            'text'        => 'Actividades',
                             'url'         => '/actividades',
                             'icon'        => 'fas fa-fw fa-plus',
                             // 'label'       => 4,
                             // 'label_color' => 'success',
                         ],
-                        // [
-                        //     'text'        => 'Actividad 1',
-                        //     'url'         => '#',
-                        //     'icon'        => 'fas fa-fw fa-puzzle-piece',
-                        //     // 'label'       => 4,
-                        //     // 'label_color' => 'success',
-                        // ],
+                        [
+                            'text'        => 'Temarios',
+                            'url'         => 'temarios',
+                            'icon'        => 'fas fa-fw fa-puzzle-piece',
+                            // 'label'       => 4,
+                            // 'label_color' => 'success',
+                        ],
                         // [
                         //     'text'        => 'Actividad 2',
                         //     'url'         => '#',
@@ -401,6 +395,12 @@ return [
                     ]
                 ],
             ]
+        ],
+        [
+            'text'        => 'Reportes',
+            'url'       => 'reportes',
+            'icon'        => 'fas fa-fw fa-thumbs-up',
+            // 'can'         => 'admin.roles.index',
         ],
         // ['header' => 'account_settings'],
 
@@ -532,7 +532,17 @@ return [
                 [
                     'type' => 'css',
                     'asset' => false,
-                    'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css',
+                    'location' => 'vendor/select2/css/select2.min.css',
+                ],
+            ],
+        ],
+        'Select2-Bootstrap4' => [
+            'active' => false,
+            'files' => [
+                [
+                    'type' => 'css',
+                    'asset' => false,
+                    'location' => 'vendor/select2-bootstrap4-theme/select2-bootstrap4.min.css',
                 ],
             ],
         ],

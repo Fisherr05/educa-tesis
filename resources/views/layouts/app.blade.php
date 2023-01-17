@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-	<title>@hasSection('title') @yield('title') | @endif {{ config('app.name', 'Laravel') }}</title>
+	<title>@hasSection('title') @yield('title') | @endif {{ config('app.name', 'UESCH') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -37,19 +37,31 @@
                     <ul class="navbar-nav mr-auto">
 						<!--Nav Bar Hooks - Do not delete!!-->
 						<li class="nav-item">
-                            <a href="{{ url('/subtemarios') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Subtemarios</a> 
+                            <a href="{{ url('/niveles') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Niveles</a> 
                         </li>
 						<li class="nav-item">
-                            <a href="{{ url('/temarios') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Temarios</a> 
+                            <a href="{{ url('/estudiantes') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Estudiantes</a> 
                         </li>
 						<li class="nav-item">
-                            <a href="{{ url('/actividades') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Actividades</a> 
+                            <a href="{{ url('/docentes') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Docentes</a> 
                         </li>
 						<li class="nav-item">
-                            <a href="{{ url('/cualidades') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Cualidades</a> 
+                            <a href="{{ url('/usuarios_pendientes') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Usuarios_pendientes</a> 
                         </li>
 						<li class="nav-item">
-                            <a href="{{ url('/estados') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Estados</a> 
+                            <a href="{{ url('/subtemarios') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Subtemarios</a>
+                        </li>
+						<li class="nav-item">
+                            <a href="{{ url('/temarios') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Temarios</a>
+                        </li>
+						<li class="nav-item">
+                            <a href="{{ url('/actividades') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Actividades</a>
+                        </li>
+						<li class="nav-item">
+                            <a href="{{ url('/cualidades') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Cualidades</a>
+                        </li>
+						<li class="nav-item">
+                            <a href="{{ url('/estados') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Estados</a>
                         </li>
 						<li class="nav-item">
                             <a href="{{ url('/niveles') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Niveles</a>

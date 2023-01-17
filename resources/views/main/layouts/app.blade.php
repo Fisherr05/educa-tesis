@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="{{ asset('main/css/responsive.css') }}" />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('main/css/custom.css') }}" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 </head>
 
 @yield('content')

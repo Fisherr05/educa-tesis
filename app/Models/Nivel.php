@@ -15,4 +15,28 @@ class Nivel extends Model
 
     protected $fillable = ['nombre','paralelo'];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function actividades()
+    {
+        return $this->hasMany('App\Models\Actividade', 'id_nivel', 'id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function docentes()
+    {
+    return $this->belongsToMany('App\Models\Docente','docente_nivel'/*, 'id_nivel', 'id'*/);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function estudiantes()
+    {
+        return $this->hasMany('App\Models\Estudiante', 'id_nivel', 'id');
+    }
+
 }

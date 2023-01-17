@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Actividades;
 use App\Http\Controllers\Temarios;
+use App\Http\Controllers\UsuariosPendientes;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +18,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('main.index');
-});
-Route::resource('estudiante', Actividades::class);
+})->name('home');
+Route::resource('vista-estudiante', Actividades::class);
+
 
 Route::get('/info', function () {
     return view('main.informacion');
@@ -30,14 +32,20 @@ Route::get('/cursos', function () {
     return view('main.cursos');
 });
 Route::get('/temario/{actividad}', [Temarios::class, 'porActividad'])->name('temario');
-Route::get('/dashboard',function () {return view('admin.dashboard');})->name('dashboard');
-Route::get('/docentes',function () {return view('admin.docentes.index');})->name('docentes');
-Route::get('/estudiantes',function () {return view('admin.estudiantes.index');})->name('estudiantes');
-Route::get('/paralelos',function () {return view('admin.paralelos.index');})->name('paralelos');
-Route::get('/pendientes',function () {return view('admin.pendientes.index');})->name('pendientes');
-Route::get('hola',function (){
+Route::get('/dashboard', function () {
+    return view('admin.dashboard');
+})->name('dashboard');
+// Route::get('/docentes',function () {return view('admin.docentes.index');})->name('docentes');
+// Route::get('/estudiantes',function () {return "Hola";})->name('estudiantes');
+Route::get('/paralelos', function () {
+    return view('admin.paralelos.index');
+})->name('paralelos');
+Route::get('/pendientes', function () {
+    return view('admin.pendientes.index');
+})->name('pendientes');
+Route::get('hola', function () {
     $tables = DB::select('SHOW TABLES');
-    $dbName='Tables_in_'.env('DB_DATABASE');
+    $dbName = 'Tables_in_' . env('DB_DATABASE');
     // foreach ($tables as $table) {
     //     foreach ($table as $key => $value)
     //         echo $value.'<br>';
@@ -48,7 +56,7 @@ Route::get('hola',function (){
     // }
     $controllername = str_replace(["\crocodicstudio\crudbooster\controllers\\", "App\Http\Controllers\\"], "", strtok(Route::currentRouteAction(), '@'));
     //return dd(Route::currentRouteAction());
-    $colms=DB::getSchemaBuilder()->getColumnListing('niveles');
+    $colms = DB::getSchemaBuilder()->getColumnListing('niveles');
     return dd($colms);
 });
 // Route::middleware([
@@ -62,9 +70,21 @@ Route::get('hola',function (){
 // });
 
 //Route Hooks - Do not delete//
-	Route::view('subtemarios', 'livewire.subtemarios.index')->middleware('auth');
-	Route::view('temarios', 'livewire.temarios.index')->middleware('auth');
-	Route::view('actividades', 'livewire.actividades.index')->middleware('auth');
-	Route::view('cualidades', 'livewire.cualidades.index')->middleware('auth');
-	Route::view('estados', 'livewire.estados.index')->middleware('auth');
-    Route::view('niveles', 'livewire.niveles.index')->middleware('auth');
+Route::view('niveles', 'livewire.niveles.index')->middleware('auth');
+Route::view('estudiante', 'livewire.estudiantes.index')->middleware('auth');
+Route::view('docentes', 'livewire.docentes.index')->middleware('auth');
+Route::view('usuarios_pendientes', 'livewire.usuarios-pendientes.index')->middleware('auth');
+Route::view('subtemarios', 'livewire.subtemarios.index')->middleware('auth');
+Route::view('temarios', 'livewire.temarios.index')->middleware('auth');
+Route::view('actividades', 'livewire.actividades.index')->middleware('auth');
+Route::view('cualidades', 'livewire.cualidades.index')->middleware('auth');
+Route::view('estados', 'livewire.estados.index')->middleware('auth');
+
+
+Route::post('/register', [UsuariosPendientes::class, 'create'])
+    ->middleware(['guest:' . config('fortify.guard')]);
+
+Route::get('/pendientes', [UsuariosPendientes::class, 'index'])
+    ->middleware(['guest:' . config('fortify.guard')]);
+Route::view('reportes', 'estudiantes.reporte')->middleware('auth')->name('reportes');
+Route::get('listado/{id}', [Actividades::class, 'listado']);

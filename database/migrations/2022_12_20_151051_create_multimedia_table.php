@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('multimedia', function (Blueprint $table) {
             $table->id();
-            $table->string('url');
+            $table->text('url');
             $table->boolean('imagen')->default(false);
             $table->unsignedBigInteger('multimediable_id');
             $table->string('multimediable_type');

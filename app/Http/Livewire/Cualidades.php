@@ -47,16 +47,14 @@ class Cualidades extends Component
 
         $this->resetInput();
 		$this->emit('closeModal');
-		session()->flash('message', 'Cualidade Successfully created.');
+		session()->flash('message', 'Cualidad Successfully created.');
     }
 
     public function edit($id)
     {
         $record = Cualidad::findOrFail($id);
-
         $this->selected_id = $id;
 		$this->nombre = $record-> nombre;
-
         $this->updateMode = true;
     }
 

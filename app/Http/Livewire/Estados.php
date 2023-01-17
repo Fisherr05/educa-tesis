@@ -20,7 +20,6 @@ class Estados extends Component
         return view('livewire.estados.view', [
             'estados' => Estado::Where('nombre', 'LIKE', $keyWord)->get(),
         ]);
-        return dd(Estado::latest());
     }
 
     public function cancel()

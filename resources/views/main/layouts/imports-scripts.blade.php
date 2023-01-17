@@ -12,3 +12,5 @@
 <script src="{{ asset('main/js/isotope.min.js') }}"></script>
 <script src="{{ asset('main/js/images-loded.min.js') }}"></script>
 <script src="{{ asset('main/js/custom.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+

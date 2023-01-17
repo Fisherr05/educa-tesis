@@ -52,7 +52,7 @@
                 <button type="button" wire:click.prevent="cancel()" class="btn btn-secondary"
                     data-dismiss="modal">Cerrar</button>
                 <button type="button" wire:click.prevent="update()" class="btn btn-primary"
-                    data-dismiss="modal">Guardar</button>
+                >Guardar</button>
             </div>
         </div>
     </div>
