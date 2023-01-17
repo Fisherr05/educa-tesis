@@ -399,7 +399,7 @@ return [
         [
             'text'        => 'Reportes',
             'url'       => 'reportes',
-            'icon'        => 'fas fa-fw fa-thumbs-up',
+            'icon'        => 'fas fa-fw   fa-file',
             // 'can'         => 'admin.roles.index',
         ],
         // ['header' => 'account_settings'],
