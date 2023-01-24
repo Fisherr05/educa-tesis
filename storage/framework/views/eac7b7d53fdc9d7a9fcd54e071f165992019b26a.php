@@ -1,18 +1,20 @@
 <!-- Modal -->
-<div wire:ignore.self class="modal fade" id="createDataModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="createDataModalLabel" aria-hidden="true">
+<div wire:ignore.self class="modal fade" id="createDataModal" data-backdrop="static" tabindex="-1" role="dialog"
+    aria-labelledby="createDataModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="createDataModalLabel">Crear Nuevo Estado</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                     <span aria-hidden="true close-btn">×</span>
+                    <span aria-hidden="true close-btn">×</span>
                 </button>
             </div>
-           <div class="modal-body">
-				<form>
-            <div class="form-group">
-                <label for="nombre"></label>
-                <input wire:model="nombre" type="text" class="form-control" id="nombre" placeholder="Nombre Estado"><?php $__errorArgs = ['nombre'];
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="nombre"></label>
+                        <input wire:model="nombre" type="text" class="form-control" id="nombre"
+                            placeholder="Nombre Estado"><?php $__errorArgs = ['nombre'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -20,8 +22,13 @@ $message = $__bag->first($__errorArgs[0]); ?> <span class="error text-danger"><?
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
-            </div>
-
+                    </div>
+                    <div class="form-check">
+                        <input wire:model="activo" class="form-check-input" type="checkbox" value="" id="activo">
+                        <label class="form-check-label" for="activo">
+                            Activo
+                        </label>
+                    </div>
                 </form>
             </div>
             <div class="modal-footer">

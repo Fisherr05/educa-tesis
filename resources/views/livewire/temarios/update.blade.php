@@ -52,46 +52,45 @@
                         <span class="error text-danger">{{ $message }}</span>
                         @enderror
                     </div>
-                    <div class="form-group">
-                        <label for=""></label>
-                        <select wire:model="seleccion" wire:change="seleccionChange()" id="seleccionar"
-                            class="form-control" placeholder="Seleccione multimedia">
-                            <option hidden value="">Seleccione multimedia</option>
-                            <option value="1">Imagen</option>
-                            <option value="2">Video</option>
-                        </select>
+                    <div class="col-md-6">
+                        <button type="button" wire:click="updateImage()" class="btn btn-primary" id="remove"><i
+                                class="far fa-edit"> </i>Cambiar Imagen</button>
                     </div>
-                    @if($imagen == true)
-                    <div class="form-group">
+                    @if ($updateImage==true)
+                    <div id="imagen" class="form-group">
                         <label for="multimedia"></label>
-                        @isset($multimedia)
-                        <img src="{{ Storage::url($multimedia) }}" class="img-thumbnail" alt="" width="100"
-                            height="100">
-                        @endisset
-                        <input wire:model="multimedia" type="file" class="form-control" id="multimedia"
-                            placeholder="Multimedia" accept="image/*">
-                        @error('multimedia')
+                        @if ($url_imagen)
+                        <img src="{{ Storage::url($url_imagen)}}" id="multimedia_view" class="img-thumbnail" alt=""
+                            width="100" height="100">
+                        @elseif ($updateMode && $url_imagen->temporaryUrl())
+                        <img src="{{ $url_imagen->temporaryUrl() }}" id="multimedia_view" class="img-thumbnail" alt=""
+                            width="100" height="100">
+                        @else
+                        <img src="{{ asset('img/void.jpeg') }}" id="multimedia_view" class="img-thumbnail" alt=""
+                            width="100" height="100">
+                        @endif
+                        <input wire:model="url_imagen" type="file" class="form-control" id="url_imagen"
+                            placeholder="Seleccione una imagen" accept="image/*">
+                        @error('url_imagen')
                         <span class="error text-danger">{{ $message }}</span>
                         @enderror
                     </div>
+
                     @endif
-                    @if ($video == true)
                     <div id="video" class="form-group">
-                        <label for="multimedia"></label>
-                        <textarea wire:model="multimedia" id="multimedia" class="md-textarea form-control" rows="3"
+                        <label for="url_video"></label>
+                        <textarea wire:model="url_video" id="url_video" class="md-textarea form-control" rows="3"
                             placeholder="Ingrese iframe de video"></textarea>
-                        @error('multimedia')
+                        @error('url_video')
                         <span class="error text-danger">{{ $message }}</span>
                         @enderror
                     </div>
-                    @endif
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" wire:click.prevent="cancel()" class="btn btn-secondary"
                     data-dismiss="modal">Cerrar</button>
-                <button type="button" wire:click.prevent="update()" class="btn btn-primary"
-                    >Guardar</button>
+                <button type="button" wire:click.prevent="update()" class="btn btn-primary">Guardar</button>
             </div>
         </div>
     </div>

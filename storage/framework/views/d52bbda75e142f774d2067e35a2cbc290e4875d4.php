@@ -16,14 +16,13 @@
                 <form>
                     <div class="form-group">
                         <label for="nombre"></label>
-                        <input wire:model="nombre" type="text" class="form-control" id="nombre"
-                            placeholder="Nombre">
+                        <input wire:model="nombre" type="text" class="form-control" id="nombre" placeholder="Nombre">
                         <?php $__errorArgs = ['nombre'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                            <span class="error text-danger"><?php echo e($message); ?></span>
+                        <span class="error text-danger"><?php echo e($message); ?></span>
                         <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
@@ -38,7 +37,7 @@ $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                            <span class="error text-danger"><?php echo e($message); ?></span>
+                        <span class="error text-danger"><?php echo e($message); ?></span>
                         <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
@@ -50,7 +49,7 @@ unset($__errorArgs, $__bag); ?>
                             placeholder="Actividad">
                             <option hidden value="">Seleccione una actividad</option>
                             <?php $__currentLoopData = $actividades; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $id => $nombre): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <option value="<?php echo e($id); ?>"><?php echo e($nombre); ?></option>
+                            <option value="<?php echo e($id); ?>"><?php echo e($nombre); ?></option>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                         <?php $__errorArgs = ['id_actividad'];
@@ -58,7 +57,7 @@ $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                            <span class="error text-danger"><?php echo e($message); ?></span>
+                        <span class="error text-danger"><?php echo e($message); ?></span>
                         <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
@@ -69,7 +68,7 @@ unset($__errorArgs, $__bag); ?>
                         <select wire:model="id_estado" id="id_estado" class="form-control" placeholder="Estado">
                             <option hidden value="">Seleccione un estado</option>
                             <?php $__currentLoopData = $estados; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $id => $nombre): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <option value="<?php echo e($id); ?>"><?php echo e($nombre); ?></option>
+                            <option value="<?php echo e($id); ?>"><?php echo e($nombre); ?></option>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                         <?php $__errorArgs = ['id_estado'];
@@ -77,74 +76,56 @@ $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                            <span class="error text-danger"><?php echo e($message); ?></span>
+                        <span class="error text-danger"><?php echo e($message); ?></span>
                         <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                     </div>
-                    <div class="form-group">
-                        <label for=""></label>
-                        <select wire:model="seleccion" wire:change="seleccionChange()" id="seleccionar" class="form-control"
-                            placeholder="Seleccione multimedia">
-                            <option hidden value="">Seleccione multimedia</option>
-                            <option value="1">Imagen</option>
-                            <option value="2">Video</option>
-                        </select>
+                    <div id="imagen" class="form-group">
+                        <label for="multimedia"></label>
+                        <?php if($url_imagen && !$updateMode): ?>
+                        <img src="<?php echo e($url_imagen->temporaryUrl()); ?>" id="multimedia_view" class="img-thumbnail" alt=""
+                            width="100" height="100">
+                        <?php else: ?>
+                        <img src="<?php echo e(asset('img/void.jpeg')); ?>" id="multimedia_view" class="img-thumbnail" alt=""
+                            width="100" height="100">
+                        <?php endif; ?>
+                        <input wire:model="url_imagen" type="file" class="form-control" id="url_imagen"
+                            placeholder="Seleccione una imagen" accept="image/*">
+                        <?php $__errorArgs = ['url_imagen'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                        <span class="error text-danger"><?php echo e($message); ?></span>
+                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                     </div>
-                    <?php if($imagen == true): ?>
-                        <div id="imagen" class="form-group">
-                            <label for="multimedia"></label>
-                            <?php if($multimedia && !$updateMode): ?>
-                                <img src="<?php echo e($multimedia->temporaryUrl()); ?>" id="multimedia_view" class="img-thumbnail"
-                                    alt="" width="100" height="100">
-                            <?php else: ?>
-                                <img src="<?php echo e(asset('img/void.jpeg')); ?>" id="multimedia_view" class="img-thumbnail"
-                                    alt="" width="100" height="100">
-                            <?php endif; ?>
-                            <input wire:model="multimedia" type="file" class="form-control" id="multimedia"
-                                placeholder="Multimedia" accept="image/*">
-                            <?php $__errorArgs = ['multimedia'];
+                    <div id="video" class="form-group">
+                        <label for="url_video"></label>
+                        <textarea wire:model="url_video" id="url_video" class="md-textarea form-control" rows="3"
+                            placeholder="Ingrese iframe de video"></textarea>
+                        <?php $__errorArgs = ['url_video'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                                <span class="error text-danger"><?php echo e($message); ?></span>
-                            <?php unset($message);
+                        <span class="error text-danger"><?php echo e($message); ?></span>
+                        <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
-                        </div>
-                    <?php else: ?>
-                        Hola imagen
-                    <?php endif; ?>
-                    <?php if($video == true): ?>
-                        <div id="video" class="form-group">
-                            <label for="multimedia"></label>
-                            <textarea wire:model="multimedia" id="multimedia" class="md-textarea form-control" rows="3"
-                                placeholder="Ingrese iframe de video"></textarea>
-                            <?php $__errorArgs = ['multimedia'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-                                <span class="error text-danger"><?php echo e($message); ?></span>
-                            <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
-                        </div>
-                    <?php else: ?>
-                        Hola Video
-                    <?php endif; ?>
+                    </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button wire:click="cancel()" id="cerrar" type="button" class="btn btn-secondary close-btn"
-                    data-dismiss="modal">Close</button>
+                    data-dismiss="modal">Cerrar</button>
                 
-                <button type="button" wire:click.prevent="store()"
-                    class="btn btn-primary close-modal">Save</button>
+                <button type="button" wire:click.prevent="store()" class="btn btn-primary close-modal">Guardar</button>
             </div>
             
         </div>
@@ -166,10 +147,10 @@ unset($__errorArgs, $__bag); ?>
     //     }
     // }
 
-    const cerrar = document.getElementById("cerrar");
-    cerrar.onclick = () => {
-        document.getElementById("multimedia").value = "";
-    }
+    // const cerrar = document.getElementById("cerrar");
+    // cerrar.onclick = () => {
+    //     document.getElementById("multimedia").value = "";
+    // }
     // const seleccionar = document.getElementById("seleccionar");
     // seleccionar.onchange = () => {
     //     if (seleccionar.value == 1) {

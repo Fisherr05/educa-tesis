@@ -10,13 +10,13 @@ class Estados extends Component
 {
     use WithPagination;
 
-	protected $paginationTheme = 'bootstrap';
-    public $selected_id, $keyWord, $nombre;
+    protected $paginationTheme = 'bootstrap';
+    public $selected_id, $keyWord, $nombre, $activo;
     public $updateMode = false;
 
     public function render()
     {
-		$keyWord = '%'.$this->keyWord .'%';
+        $keyWord = '%' . $this->keyWord . '%';
         return view('livewire.estados.view', [
             'estados' => Estado::Where('nombre', 'LIKE', $keyWord)->get(),
         ]);
@@ -30,22 +30,23 @@ class Estados extends Component
 
     private function resetInput()
     {
-		$this->nombre = null;
+        $this->nombre = null;
+        $this->activo = null;
     }
 
     public function store()
     {
         $this->validate([
-		'nombre' => 'required',
+            'nombre' => 'required',
         ]);
 
         Estado::create([
-			'nombre' => $this-> nombre
+            'nombre' => $this->nombre
         ]);
 
         $this->resetInput();
-		$this->emit('closeModal');
-		session()->flash('message', 'Estado Successfully created.');
+        $this->emit('closeModal');
+        session()->flash('message', 'Estado Creado con Éxito.');
     }
 
     public function edit($id)
@@ -53,7 +54,8 @@ class Estados extends Component
         $record = Estado::findOrFail($id);
 
         $this->selected_id = $id;
-		$this->nombre = $record-> nombre;
+        $this->nombre = $record->nombre;
+        $this->activo = $record->activo;
 
         $this->updateMode = true;
     }
@@ -61,18 +63,19 @@ class Estados extends Component
     public function update()
     {
         $this->validate([
-		'nombre' => 'required',
+            'nombre' => 'required',
         ]);
 
         if ($this->selected_id) {
-			$record = Estado::find($this->selected_id);
+            $record = Estado::find($this->selected_id);
             $record->update([
-			'nombre' => $this-> nombre
+                'nombre' => $this->nombre,
+                'activo' => $this->activo,
             ]);
 
             $this->resetInput();
             $this->updateMode = false;
-			session()->flash('message', 'Estado Successfully updated.');
+            session()->flash('message', 'Estado Actualizado con Éxito.');
         }
     }
 

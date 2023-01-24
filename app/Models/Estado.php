@@ -13,7 +13,7 @@ class Estado extends Model
 
     protected $table = 'estados';
 
-    protected $fillable = ['nombre'];
+    protected $fillable = ['nombre','activo'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

@@ -22,6 +22,12 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
             </div>
+            <div class="form-check">
+                <input wire:model="activo" class="form-check-input" type="checkbox" value="" id="activo">
+                <label class="form-check-label" for="activo">
+                    Activo
+                </label>
+            </div>
 
                 </form>
             </div>

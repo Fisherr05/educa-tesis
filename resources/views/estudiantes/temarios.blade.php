@@ -15,16 +15,14 @@
 
         <div class="row justify-content-center">
             @foreach ($temarios as $temario)
-            <x-estudiantes.temario title="{{$temario->nombre}}">
+            <x-estudiantes.temario title="{{$temario->nombre}}" idTemario="{{$temario->id}}">
                 <p class="description">Estamos Aprendiendo</p>
 
-                @isset($temario->multimedias)
-                @if ($temario->multimedias->imagen == true)
-                <center><img src="{{Storage::url($temario->multimedias->url)}}" style="text-align:center;" alt="" width="120" height="120"></center>
+                @if ($temario->url_imagen)
+                <center><img src="{{Storage::url($temario->url_imagen)}}" style="text-align:center;" alt="" width="120" height="120"></center>
                 @else
-                <div class="ratio ratio-16x9">{!! $temario->multimedias->url  !!}</div>
+                <div class="ratio ratio-16x9">{!! $temario->url_video  !!}</div>
                 @endif
-                @endisset
 
             </x-estudiantes.temario>
             @endforeach

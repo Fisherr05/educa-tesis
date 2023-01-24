@@ -80,25 +80,26 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                     </div>
-                    <div class="form-group">
-                        <label for=""></label>
-                        <select wire:model="seleccion" wire:change="seleccionChange()" id="seleccionar"
-                            class="form-control" placeholder="Seleccione multimedia">
-                            <option hidden value="">Seleccione multimedia</option>
-                            <option value="1">Imagen</option>
-                            <option value="2">Video</option>
-                        </select>
+                    <div class="col-md-6">
+                        <button type="button" wire:click="updateImage()" class="btn btn-primary" id="remove"><i
+                                class="far fa-edit"> </i>Cambiar Imagen</button>
                     </div>
-                    <?php if($imagen == true): ?>
-                    <div class="form-group">
+                    <?php if($updateImage==true): ?>
+                    <div id="imagen" class="form-group">
                         <label for="multimedia"></label>
-                        <?php if(isset($multimedia)): ?>
-                        <img src="<?php echo e(Storage::url($multimedia)); ?>" class="img-thumbnail" alt="" width="100"
-                            height="100">
+                        <?php if($url_imagen): ?>
+                        <img src="<?php echo e(Storage::url($url_imagen)); ?>" id="multimedia_view" class="img-thumbnail" alt=""
+                            width="100" height="100">
+                        <?php elseif($updateMode && $url_imagen->temporaryUrl()): ?>
+                        <img src="<?php echo e($url_imagen->temporaryUrl()); ?>" id="multimedia_view" class="img-thumbnail" alt=""
+                            width="100" height="100">
+                        <?php else: ?>
+                        <img src="<?php echo e(asset('img/void.jpeg')); ?>" id="multimedia_view" class="img-thumbnail" alt=""
+                            width="100" height="100">
                         <?php endif; ?>
-                        <input wire:model="multimedia" type="file" class="form-control" id="multimedia"
-                            placeholder="Multimedia" accept="image/*">
-                        <?php $__errorArgs = ['multimedia'];
+                        <input wire:model="url_imagen" type="file" class="form-control" id="url_imagen"
+                            placeholder="Seleccione una imagen" accept="image/*">
+                        <?php $__errorArgs = ['url_imagen'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -109,13 +110,13 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                     </div>
+
                     <?php endif; ?>
-                    <?php if($video == true): ?>
                     <div id="video" class="form-group">
-                        <label for="multimedia"></label>
-                        <textarea wire:model="multimedia" id="multimedia" class="md-textarea form-control" rows="3"
+                        <label for="url_video"></label>
+                        <textarea wire:model="url_video" id="url_video" class="md-textarea form-control" rows="3"
                             placeholder="Ingrese iframe de video"></textarea>
-                        <?php $__errorArgs = ['multimedia'];
+                        <?php $__errorArgs = ['url_video'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -126,14 +127,12 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                     </div>
-                    <?php endif; ?>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" wire:click.prevent="cancel()" class="btn btn-secondary"
                     data-dismiss="modal">Cerrar</button>
-                <button type="button" wire:click.prevent="update()" class="btn btn-primary"
-                    >Guardar</button>
+                <button type="button" wire:click.prevent="update()" class="btn btn-primary">Guardar</button>
             </div>
         </div>
     </div>

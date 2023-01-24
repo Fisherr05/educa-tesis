@@ -16,37 +16,36 @@
                     {!! Form::label('nombre', 'Nombre') !!}
                     {!! Form::text('nombre', null, ['class' => 'form-control']) !!}
                     @error('nombre')
-                        <span class="error text-danger">{{ $message }}</span>
+                    <span class="error text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="form-group">
                     {!! Form::label('contenido', 'Contenido') !!}
                     {!! Form::text('contenido', null, ['class' => 'form-control']) !!}
                     @error('contenido')
-                        <span class="error text-danger">{{ $message }}</span>
+                    <span class="error text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="form-group">
                     {!! Form::label('id_actividad', 'Actividad') !!}
                     {!! Form::select('id_actividad', $actividades,null, ['class' => 'form-control']) !!}
                     @error('id_actividad')
-                        <span class="error text-danger">{{ $message }}</span>
+                    <span class="error text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="form-group">
                     {!! Form::label('id_estado', 'Estado') !!}
                     {!! Form::select('id_estado', $estados,null, ['class' => 'form-control']) !!}
                     @error('id_estado')
-                        <span class="error text-danger">{{ $message }}</span>
+                    <span class="error text-danger">{{ $message }}</span>
                     @enderror
                 </div> --}}
                 <form>
                     <div class="form-group">
                         <label for="nombre"></label>
-                        <input wire:model="nombre" type="text" class="form-control" id="nombre"
-                            placeholder="Nombre">
+                        <input wire:model="nombre" type="text" class="form-control" id="nombre" placeholder="Nombre">
                         @error('nombre')
-                            <span class="error text-danger">{{ $message }}</span>
+                        <span class="error text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="form-group">
@@ -54,7 +53,7 @@
                         <input wire:model="contenido" type="text" class="form-control" id="contenido"
                             placeholder="Contenido">
                         @error('contenido')
-                            <span class="error text-danger">{{ $message }}</span>
+                        <span class="error text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="form-group">
@@ -63,11 +62,11 @@
                             placeholder="Actividad">
                             <option hidden value="">Seleccione una actividad</option>
                             @foreach ($actividades as $id => $nombre)
-                                <option value="{{ $id }}">{{ $nombre }}</option>
+                            <option value="{{ $id }}">{{ $nombre }}</option>
                             @endforeach
                         </select>
                         @error('id_actividad')
-                            <span class="error text-danger">{{ $message }}</span>
+                        <span class="error text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="form-group">
@@ -75,61 +74,43 @@
                         <select wire:model="id_estado" id="id_estado" class="form-control" placeholder="Estado">
                             <option hidden value="">Seleccione un estado</option>
                             @foreach ($estados as $id => $nombre)
-                                <option value="{{ $id }}">{{ $nombre }}</option>
+                            <option value="{{ $id }}">{{ $nombre }}</option>
                             @endforeach
                         </select>
                         @error('id_estado')
-                            <span class="error text-danger">{{ $message }}</span>
+                        <span class="error text-danger">{{ $message }}</span>
                         @enderror
                     </div>
-                    <div class="form-group">
-                        <label for=""></label>
-                        <select wire:model="seleccion" wire:change="seleccionChange()" id="seleccionar" class="form-control"
-                            placeholder="Seleccione multimedia">
-                            <option hidden value="">Seleccione multimedia</option>
-                            <option value="1">Imagen</option>
-                            <option value="2">Video</option>
-                        </select>
+                    <div id="imagen" class="form-group">
+                        <label for="multimedia"></label>
+                        @if ($url_imagen && !$updateMode)
+                        <img src="{{ $url_imagen->temporaryUrl() }}" id="multimedia_view" class="img-thumbnail" alt=""
+                            width="100" height="100">
+                        @else
+                        <img src="{{ asset('img/void.jpeg') }}" id="multimedia_view" class="img-thumbnail" alt=""
+                            width="100" height="100">
+                        @endif
+                        <input wire:model="url_imagen" type="file" class="form-control" id="url_imagen"
+                            placeholder="Seleccione una imagen" accept="image/*">
+                        @error('url_imagen')
+                        <span class="error text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
-                    @if ($imagen == true)
-                        <div id="imagen" class="form-group">
-                            <label for="multimedia"></label>
-                            @if ($multimedia && !$updateMode)
-                                <img src="{{ $multimedia->temporaryUrl() }}" id="multimedia_view" class="img-thumbnail"
-                                    alt="" width="100" height="100">
-                            @else
-                                <img src="{{ asset('img/void.jpeg') }}" id="multimedia_view" class="img-thumbnail"
-                                    alt="" width="100" height="100">
-                            @endif
-                            <input wire:model="multimedia" type="file" class="form-control" id="multimedia"
-                                placeholder="Multimedia" accept="image/*">
-                            @error('multimedia')
-                                <span class="error text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-                    @else
-                        Hola imagen
-                    @endif
-                    @if ($video == true)
-                        <div id="video" class="form-group">
-                            <label for="multimedia"></label>
-                            <textarea wire:model="multimedia" id="multimedia" class="md-textarea form-control" rows="3"
-                                placeholder="Ingrese iframe de video"></textarea>
-                            @error('multimedia')
-                                <span class="error text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-                    @else
-                        Hola Video
-                    @endif
+                    <div id="video" class="form-group">
+                        <label for="url_video"></label>
+                        <textarea wire:model="url_video" id="url_video" class="md-textarea form-control" rows="3"
+                            placeholder="Ingrese iframe de video"></textarea>
+                        @error('url_video')
+                        <span class="error text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button wire:click="cancel()" id="cerrar" type="button" class="btn btn-secondary close-btn"
-                    data-dismiss="modal">Close</button>
+                    data-dismiss="modal">Cerrar</button>
                 {{-- {!! Form::submit('Guardar', ['class'=>'btn btn-primary close-modal']) !!} --}}
-                <button type="button" wire:click.prevent="store()"
-                    class="btn btn-primary close-modal">Save</button>
+                <button type="button" wire:click.prevent="store()" class="btn btn-primary close-modal">Guardar</button>
             </div>
             {{-- {!! Form::close() !!} --}}
         </div>
@@ -151,10 +132,10 @@
     //     }
     // }
 
-    const cerrar = document.getElementById("cerrar");
-    cerrar.onclick = () => {
-        document.getElementById("multimedia").value = "";
-    }
+    // const cerrar = document.getElementById("cerrar");
+    // cerrar.onclick = () => {
+    //     document.getElementById("multimedia").value = "";
+    // }
     // const seleccionar = document.getElementById("seleccionar");
     // seleccionar.onchange = () => {
     //     if (seleccionar.value == 1) {

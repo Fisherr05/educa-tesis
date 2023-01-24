@@ -32,6 +32,7 @@ Route::get('/cursos', function () {
     return view('main.cursos');
 });
 Route::get('/temario/{actividad}', [Temarios::class, 'porActividad'])->name('temario');
+Route::get('/view-temario/{temario}', [Temarios::class, 'porTemario'])->name('view-temario');
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
 })->name('dashboard');

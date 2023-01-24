@@ -13,7 +13,7 @@ class Temario extends Model
 
     protected $table = 'temarios';
 
-    protected $fillable = ['nombre','imagen','alt_imagen','video','contenido','id_actividad','id_estado'];
+    protected $fillable = ['nombre','url_imagen','url_video','contenido','id_actividad','id_estado'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
@@ -29,10 +29,5 @@ class Temario extends Model
     public function estado()
     {
         return $this->hasOne(Estado::class, 'id', 'id_estado');
-    }
-
-    //Relación uno a uno polimorfica
-    public function multimedias(){
-        return $this->morphOne(Multimedia::class,'multimediable');
     }
 }
