@@ -77,9 +77,9 @@
                         </ul>
                     </li> --}}
                     {{-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li> --}}
-                
+
                 <!-- Right Side Of Navbar -->
-               
+
                     <!-- Authentication Links -->
                     @guest
                     @if (Route::has('login'))
@@ -91,7 +91,7 @@
                     <li class="dropdown">
                         <a id="navbarDropdown" class="dropdown" href="#" role="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
+                            {{ Auth::user()->nombres }} {{ Auth::user()->apellidos }}
                         </a>
                         <ul>
                             <li class="dropdown" aria-labelledby="navbarDropdown">
