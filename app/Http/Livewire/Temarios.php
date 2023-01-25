@@ -83,7 +83,7 @@ class Temarios extends Component
         ]);
         $this->resetInput();
         $this->emit('closeModal');
-        session()->flash('message', 'Temario Successfully created.');
+        session()->flash('message', 'Temario Creado Con Éxito.');
     }
 
     public function edit($id)
@@ -137,7 +137,7 @@ class Temarios extends Component
             $this->resetInput();
             $this->updateMode = false;
             $this->emit('closeModal');
-            session()->flash('message', 'Temario Successfully updated.');
+            session()->flash('message', 'Temario Actualizado Con Éxito.');
         }
     }
 

@@ -18,7 +18,7 @@ class Actividades extends Controller
      */
     public function index()
     {
-        $actividades = Actividad::all();
+        $actividades = Actividad::whereRelation('estado','activo','=','1')->get();
         return view('estudiantes.index', compact('actividades'));
     }
 

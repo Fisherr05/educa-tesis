@@ -85,7 +85,7 @@ class Temarios extends Controller
     }
 
     public function porActividad(Actividad $actividad){
-        $temarios=Temario::whereRelation('actividad','nombre','=',$actividad->nombre)->get();
+        $temarios=Temario::whereRelation('actividad','nombre','=',$actividad->nombre)->whereRelation('estado','activo','=','1')->get();
         return view('estudiantes.temarios', compact('temarios'));
     }
     public function porTemario($id){

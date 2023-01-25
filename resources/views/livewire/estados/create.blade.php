@@ -18,7 +18,7 @@
                             }}</span> @enderror
                     </div>
                     <div class="form-check">
-                        <input wire:model="activo" class="form-check-input" type="checkbox" value="" id="activo">
+                        <input wire:model="activo" class="form-check-input" type="checkbox" value="true" id="activo">
                         <label class="form-check-label" for="activo">
                             Activo
                         </label>

@@ -311,18 +311,7 @@ return [
         //     'url'  => 'admin/blog',
         //     'can'  => 'manage-blog',
         // ],
-        [
-            'text'        => 'Estados',
-            'url'       => 'estados',
-            'icon'        => 'fas fa-fw fa-check-circle',
-            // 'can'         => 'admin.roles.index',
-        ],
-        [
-            'text'        => 'Cualidades',
-            'url'       => 'cualidades',
-            'icon'        => 'fas fa-fw fa-thumbs-up',
-            // 'can'         => 'admin.roles.index',
-        ],
+
         [
             'text'        => 'Usuarios',
             'route'       => 'admin.users.index',
@@ -361,6 +350,18 @@ return [
             'icon'  => 'fas fa-fw fa-plus',
             'submenu' => [
                 [
+                    'text'        => 'Estados',
+                    'url'       => 'estados',
+                    'icon'        => 'fas fa-fw fa-check-circle',
+                    // 'can'         => 'admin.roles.index',
+                ],
+                [
+                    'text'        => 'Cualidades',
+                    'url'       => 'cualidades',
+                    'icon'        => 'fas fa-fw fa-thumbs-up',
+                    // 'can'         => 'admin.roles.index',
+                ],
+                [
                     'text'        => 'Niveles',
                     'url'         => 'niveles',
                     'icon'        => 'fas fa-fw fa-object-ungroup',
@@ -395,6 +396,12 @@ return [
                     ]
                 ],
             ]
+        ],
+        [
+            'text'        => 'Ver como Estudiante',
+            'url'       => 'vista-estudiante',
+            'icon'        => 'fas fa-fw  fa-eye',
+            // 'can'         => 'admin.roles.index',
         ],
         [
             'text'        => 'Reportes',
