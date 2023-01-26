@@ -319,8 +319,15 @@ return [
         //     // 'can'         => 'admin.roles.index',
         // ],
         [
+            'text'        => 'Tareas',
+            'url'       => 'vista-estudiante',
+            'icon'        => 'fas fa-fw  fa-eye',
+            'can'         => ['estudiante'],
+        ],
+        [
             'text'  => 'Registro de Usuarios',
             'icon'  => 'fas fa-fw fa-book',
+            'can'         => ['admin','docente'],
             'submenu' => [
                 [
                     'text'        => 'Docentes',
@@ -349,6 +356,7 @@ return [
         [
             'text'  => 'Acciones',
             'icon'  => 'fas fa-fw fa-plus',
+            'can'         => ['admin','docente'],
             'submenu' => [
                 [
                     'text'        => 'Estados',
