@@ -11,28 +11,30 @@
             </div>
             <div class="modal-body">
                 <form>
-                    <input type="hidden" wire:model="selected_id">
-                    <div class="form-group">
-                        <label for="nombre"></label>
-                        <input wire:model="nombre" type="text" class="form-control" id="nombre"
-                            placeholder="Nombre">
-                        @error('nombre')
-                            <span class="error text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="id_nivel"></label>
-                        <select wire:model="id_nivel" id="id_nivel" class="form-control" placeholder="Nivel">
-                            <option hidden>Seleccione un nivel</option>
-                            @foreach ($niveles as $nivel)
-                                <option value="{{ $nivel->id }}">{{ $nivel->nombre }} - {{ $nivel->paralelo }}
-                                </option>
-                            @endforeach
-                        </select>
-                        @error('id_nivel')
-                            <span class="error text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
+                    @can('admin')
+                        <input type="hidden" wire:model="selected_id">
+                        <div class="form-group">
+                            <label for="nombre"></label>
+                            <input wire:model="nombre" type="text" class="form-control" id="nombre"
+                                placeholder="Nombre">
+                            @error('nombre')
+                                <span class="error text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="id_nivel"></label>
+                            <select wire:model="id_nivel" id="id_nivel" class="form-control" placeholder="Nivel">
+                                <option hidden>Seleccione un nivel</option>
+                                @foreach ($niveles as $nivel)
+                                    <option value="{{ $nivel->id }}">{{ $nivel->nombre }} - {{ $nivel->paralelo }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('id_nivel')
+                                <span class="error text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    @endcan
                     <div class="form-group">
                         <label for="id_estado"></label>
                         <select wire:model="id_estado" id="id_estado" class="form-control" placeholder="Estado">
@@ -51,8 +53,7 @@
             <div class="modal-footer">
                 <button type="button" wire:click.prevent="cancel()" class="btn btn-secondary"
                     data-dismiss="modal">Cerrar</button>
-                <button type="button" wire:click.prevent="update()" class="btn btn-primary"
-                >Guardar</button>
+                <button type="button" wire:click.prevent="update()" class="btn btn-primary">Guardar</button>
             </div>
         </div>
     </div>

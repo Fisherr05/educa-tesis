@@ -18,9 +18,11 @@
                             <input wire:model='keyWord' type="text" class="form-control" name="search"
                                 id="search" placeholder="Buscar Actividades">
                         </div>
-                        <div class="btn btn-sm btn-info" data-toggle="modal" data-target="#createDataModal">
-                            <i class="fa fa-plus"></i> Agregar Actividades
-                        </div>
+                        @can('admin')
+                            <div class="btn btn-sm btn-info" data-toggle="modal" data-target="#createDataModal">
+                                <i class="fa fa-plus"></i> Agregar Actividades
+                            </div>
+                        @endcan
                     </div>
                 </div>
 
@@ -53,12 +55,14 @@
                                                     data-placement="bottom" title="Editar"
                                                     wire:click="edit({{ $row->id }})"><i class="fa fa-edit"></i>
                                                 </a>
-                                                <a class="btn btn-danger"data-toggle="tooltip" data-placement="bottom"
-                                                    title="Eliminar"
-                                                    onclick="confirm('¿Desea eliminar esta actividad? \n¡Esta acción es irreversible!')||event.stopImmediatePropagation()"
-                                                    wire:click="destroy({{ $row->id }})"><i
-                                                        class="fa fa-trash"></i>
-                                                </a>
+                                                @can('admin')
+                                                    <a class="btn btn-danger"data-toggle="tooltip" data-placement="bottom"
+                                                        title="Eliminar"
+                                                        onclick="confirm('¿Desea eliminar esta actividad? \n¡Esta acción es irreversible!')||event.stopImmediatePropagation()"
+                                                        wire:click="destroy({{ $row->id }})"><i
+                                                            class="fa fa-trash"></i>
+                                                    </a>
+                                                @endcan
 
                                             </td>
                                     @endforeach

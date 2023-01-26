@@ -38,6 +38,7 @@ class EventServiceProvider extends ServiceProvider
             'icon'        => 'fas fa-fw fa-users',
             'label'       => $cantidadPendientes,
             'label_color' => 'success',
+            'can'         => ['admin'],
         ]);
 
         });

@@ -312,13 +312,6 @@ return [
         //     'can'  => 'manage-blog',
         // ],
 
-        [
-            'text'        => 'Usuarios',
-            'route'       => 'admin.users.index',
-            'icon'        => 'fas fa-fw fa-users',
-            'can'         => 'admin.users.index',
-        ],
-
         // [
         //     'text'        => 'Roles',
         //     'route'       => 'admin.roles.index',
@@ -335,6 +328,7 @@ return [
                     'icon'        => 'fas fa-fw fa-users',
                     // 'label'       => 4,
                     // 'label_color' => 'success',
+                    'can' => 'admin'
                 ],
                 [
                     'text'        => 'Estudiantes',
@@ -342,8 +336,15 @@ return [
                     'icon'        => 'fas fa-fw fa-user-plus',
                     // 'label'       => 4,
                     // 'label_color' => 'success',
+                    'can' => ['admin','docente']
                 ]
             ]
+        ],
+        [
+            'text'        => 'Asignar Roles',
+            'route'       => 'admin.users.index',
+            'icon'        => 'fas fa-fw fa-users',
+            'can'         => 'admin.users.index',
         ],
         [
             'text'  => 'Acciones',
@@ -353,13 +354,13 @@ return [
                     'text'        => 'Estados',
                     'url'       => 'estados',
                     'icon'        => 'fas fa-fw fa-check-circle',
-                    // 'can'         => 'admin.roles.index',
+                    'can'         => 'admin',
                 ],
                 [
                     'text'        => 'Cualidades',
                     'url'       => 'cualidades',
                     'icon'        => 'fas fa-fw fa-thumbs-up',
-                    // 'can'         => 'admin.roles.index',
+                    'can'         => 'admin',
                 ],
                 [
                     'text'        => 'Niveles',
@@ -367,6 +368,7 @@ return [
                     'icon'        => 'fas fa-fw fa-object-ungroup',
                     // 'label'       => 4,
                     // 'label_color' => 'success',
+                    'can' => 'admin'
                 ],
                 [
                     'text'  => 'Contenido',
@@ -401,13 +403,13 @@ return [
             'text'        => 'Ver como Estudiante',
             'url'       => 'vista-estudiante',
             'icon'        => 'fas fa-fw  fa-eye',
-            // 'can'         => 'admin.roles.index',
+            'can'         => ['admin','docente'],
         ],
         [
             'text'        => 'Reportes',
             'url'       => 'reportes',
             'icon'        => 'fas fa-fw   fa-file',
-            // 'can'         => 'admin.roles.index',
+            'can'         => ['admin','docente'],
         ],
         // ['header' => 'account_settings'],
 

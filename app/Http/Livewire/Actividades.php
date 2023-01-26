@@ -35,7 +35,7 @@ class Actividades extends Component
         ]);
     }
 
-   
+
     public function cancel()
     {
         $this->resetInput();
