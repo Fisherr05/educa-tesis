@@ -5,7 +5,7 @@
     <div class="container">
     <br>
        <h1>Numero 5</h1>
-       <iframe src="{{ URL::to('/games/vocalu/index.html') }}" width="100%" height="700" allowFullScreen="true"></iframe>
+       <iframe src="{{ URL::to('/games/numeros/numero5/index.html') }}" width="100%" height="700" allowFullScreen="true"></iframe>
     </div>
 </section>
 @endsection
