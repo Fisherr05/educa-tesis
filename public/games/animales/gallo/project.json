@@ -1,0 +1,31 @@
+{
+  "title": "gallo",
+  "date": "13/06/21",
+  "description": {},
+  "license": {
+    "es": "Esta obra está bajo una licencia de Creative Commons <a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0\">BY-NC-SA<\/a>"
+  },
+  "meta_langs": [
+    "es"
+  ],
+  "mainFile": "gallo.jclic",
+  "cover": "project-cover.jpg",
+  "thumbnail": "project-thumb.jpg",
+  "activities": 1,
+  "mediaFiles": 7,
+  "totalSize": 137165,
+  "files": [
+    "favicon.ico",
+    "fondo.jpg",
+    "gallo.jclic",
+    "gallo.jclic.js",
+    "icon-192.png",
+    "icon-72.png",
+    "imsmanifest.xml",
+    "index.html",
+    "pollo_1.jpg",
+    "project-cover.jpg",
+    "project-thumb.jpg",
+    "project.json"
+  ]
+}

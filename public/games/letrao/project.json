@@ -1,0 +1,31 @@
+{
+  "title": "letraO",
+  "date": "10/06/21",
+  "description": {},
+  "license": {
+    "es": "Esta obra está bajo una licencia de Creative Commons <a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0\">BY-NC-SA<\/a>"
+  },
+  "meta_langs": [
+    "es"
+  ],
+  "mainFile": "letrao.jclic",
+  "cover": "project-cover.jpg",
+  "thumbnail": "project-thumb.jpg",
+  "activities": 1,
+  "mediaFiles": 7,
+  "totalSize": 124210,
+  "files": [
+    "favicon.ico",
+    "fondo.jpg",
+    "icon-192.png",
+    "icon-72.png",
+    "imsmanifest.xml",
+    "index.html",
+    "letrao.jclic",
+    "letrao.jclic.js",
+    "letrao.jpg",
+    "project-cover.jpg",
+    "project-thumb.jpg",
+    "project.json"
+  ]
+}

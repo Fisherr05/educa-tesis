@@ -1,0 +1,33 @@
+{
+  "title": "vocalA",
+  "date": "10/06/21",
+  "description": {
+    "es": "Este es el rompecabezas de la letra A"
+  },
+  "license": {
+    "es": "Esta obra está bajo una licencia de Creative Commons <a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0\">BY-NC-SA<\/a>"
+  },
+  "meta_langs": [
+    "es"
+  ],
+  "mainFile": "vocala.jclic",
+  "cover": "project-cover.jpg",
+  "thumbnail": "project-thumb.jpg",
+  "activities": 1,
+  "mediaFiles": 7,
+  "totalSize": 116247,
+  "files": [
+    "71j3dlvnrvl._ac_sx425_.jpg",
+    "favicon.ico",
+    "fondo.jpg",
+    "icon-192.png",
+    "icon-72.png",
+    "imsmanifest.xml",
+    "index.html",
+    "project-cover.jpg",
+    "project-thumb.jpg",
+    "project.json",
+    "vocala.jclic",
+    "vocala.jclic.js"
+  ]
+}

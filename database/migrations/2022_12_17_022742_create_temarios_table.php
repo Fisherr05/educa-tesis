@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('contenido')->nullable();
             $table->text('url_imagen')->nullable();
             $table->text('url_video')->nullable();
+            $table->text('enlace')->nullable();
             $table->unsignedBigInteger('id_actividad');
             $table->unsignedBigInteger('id_estado');
             $table->timestamps();

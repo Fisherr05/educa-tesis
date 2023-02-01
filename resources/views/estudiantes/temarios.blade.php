@@ -15,7 +15,7 @@
 
         <div class="row justify-content-center">
             @foreach ($temarios as $temario)
-            <x-estudiantes.temario title="{{$temario->nombre}}" idTemario="{{$temario->id}}">
+            <x-estudiantes.temario title="{{$temario->nombre}}" idTemario="{{$temario->id}}" enlace="{{$temario->enlace}}">
                 <p class="description">Estamos Aprendiendo</p>
 
                 @if ($temario->url_imagen)

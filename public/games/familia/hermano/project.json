@@ -1,0 +1,31 @@
+{
+  "title": "hermano",
+  "date": "12/06/21",
+  "description": {},
+  "license": {
+    "es": "Esta obra está bajo una licencia de Creative Commons <a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0\">BY-NC-SA<\/a>"
+  },
+  "meta_langs": [
+    "es"
+  ],
+  "mainFile": "hermano.jclic",
+  "cover": "project-cover.jpg",
+  "thumbnail": "project-thumb.jpg",
+  "activities": 1,
+  "mediaFiles": 7,
+  "totalSize": 139580,
+  "files": [
+    "favicon.ico",
+    "fondo.jpg",
+    "hermano-resized.jpg",
+    "hermano.jclic",
+    "hermano.jclic.js",
+    "icon-192.png",
+    "icon-72.png",
+    "imsmanifest.xml",
+    "index.html",
+    "project-cover.jpg",
+    "project-thumb.jpg",
+    "project.json"
+  ]
+}

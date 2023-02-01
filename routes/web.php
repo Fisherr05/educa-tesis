@@ -95,3 +95,31 @@ Route::get('/view-temario/{temario}', [Temarios::class, 'porTemario'])->middlewa
 Route::get('vista-estudiante', [Actividades::class,'index'])->middleware(['auth'])->name('vista-estudiante');
 
 Route::resource('users', UserController::class)->only('index','edit','update')->middleware(['auth','can:admin'])->names('admin.users');
+
+//rompVoc
+Route::get('/EstudianteSCH/Vocales/A', [Temarios::class,'indexA'])->name('AIndex');
+Route::get('/EstudianteSCH/Vocales/E', [Temarios::class,'indexE'])->name('EIndex');
+Route::get('/EstudianteSCH/Vocales/I', [Temarios::class,'indexI'])->name('IIndex');
+Route::get('/EstudianteSCH/Vocales/O', [Temarios::class,'indexO'])->name('OIndex');
+Route::get('/EstudianteSCH/Vocales/U', [Temarios::class,'indexU'])->name('UIndex');
+
+//rompNum
+Route::get('/EstudianteSCH/Num/1', [Temarios::class,'indexNU'])->name('NUIndex');
+Route::get('/EstudianteSCH/Num/2', [Temarios::class,'indexND'])->name('NDIndex');
+Route::get('/EstudianteSCH/Num/3', [Temarios::class,'indexNT'])->name('NTIndex');
+Route::get('/EstudianteSCH/Num/4', [Temarios::class,'indexNC'])->name('NCIndex');
+Route::get('/EstudianteSCH/Num/5', [Temarios::class,'indexNCC'])->name('NCCIndex');
+
+//rompFam
+Route::get('/EstudianteSCH/Fam/papa', [Temarios::class,'indexPa'])->name('PaIndex');
+Route::get('/EstudianteSCH/Fam/mama', [Temarios::class,'indexMa'])->name('MaIndex');
+Route::get('/EstudianteSCH/Fam/hermano', [Temarios::class,'indexHer'])->name('HerIndex');
+Route::get('/EstudianteSCH/Fam/abuelo', [Temarios::class,'indexAbu'])->name('AbuIndex');
+Route::get('/EstudianteSCH/Fam/primo', [Temarios::class,'indexPri'])->name('PriIndex');
+
+//rompAnim
+Route::get('/EstudianteSCH/Anim/Elef', [Temarios::class,'indexElef'])->name('ElefIndex');
+Route::get('/EstudianteSCH/Anim/Gall', [Temarios::class,'indexGall'])->name('GallIndex');
+Route::get('/EstudianteSCH/Anim/Gat', [Temarios::class,'indexGat'])->name('GatIndex');
+Route::get('/EstudianteSCH/Anim/Perr', [Temarios::class,'indexPerr'])->name('PerrIndex');
+Route::get('/EstudianteSCH/Anim/Vac', [Temarios::class,'indexVac'])->name('VacIndex');

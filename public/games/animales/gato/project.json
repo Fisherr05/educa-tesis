@@ -1,0 +1,31 @@
+{
+  "title": "gato",
+  "date": "13/06/21",
+  "description": {},
+  "license": {
+    "es": "Esta obra está bajo una licencia de Creative Commons <a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0\">BY-NC-SA<\/a>"
+  },
+  "meta_langs": [
+    "es"
+  ],
+  "mainFile": "gato.jclic",
+  "cover": "project-cover.jpg",
+  "thumbnail": "project-thumb.jpg",
+  "activities": 1,
+  "mediaFiles": 7,
+  "totalSize": 139720,
+  "files": [
+    "favicon.ico",
+    "fondo.jpg",
+    "gato.jclic",
+    "gato.jclic.js",
+    "gato1-resized.jpg",
+    "icon-192.png",
+    "icon-72.png",
+    "imsmanifest.xml",
+    "index.html",
+    "project-cover.jpg",
+    "project-thumb.jpg",
+    "project.json"
+  ]
+}

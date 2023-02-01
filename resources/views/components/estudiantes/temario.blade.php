@@ -5,7 +5,7 @@
         {{-- <p class="description"></p> --}}
         <br>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <a class="btn btn-info" href="">Jugar</a>
+            <a class="btn btn-info" href="{{url($enlace)}}">Jugar</a>
         </div>
 
     </div>

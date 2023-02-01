@@ -84,13 +84,119 @@ class Temarios extends Controller
         //
     }
 
-    public function porActividad(Actividad $actividad){
-        $temarios=Temario::whereRelation('actividad','nombre','=',$actividad->nombre)->whereRelation('estado','activo','=','1')->get();
+    public function porActividad(Actividad $actividad)
+    {
+        $temarios = Temario::whereRelation('actividad', 'nombre', '=', $actividad->nombre)->whereRelation('estado', 'activo', '=', '1')->get();
         return view('estudiantes.temarios', compact('temarios'));
     }
-    public function porTemario($id){
-        $temarios=Temario::where('id',$id)->get();
+    public function porTemario($id)
+    {
+        $temarios = Temario::where('id', $id)->get();
 
         return view('estudiantes.view-temario', compact('temarios'));
     }
+
+    //VOCALES
+    public function indexA()
+    {
+        return view('estudiantes.rompecabezas.vocales.a.index');
+    }
+
+    public function indexE()
+    {
+        return view('estudiantes.rompecabezas.vocales.e.index');
+    }
+
+    public function indexI()
+    {
+        return view('estudiantes.rompecabezas.vocales.i.index');
+    }
+
+    public function indexO()
+    {
+        return view('estudiantes.rompecabezas.vocales.o.index');
+    }
+
+    public function indexU()
+    {
+        return view('estudiantes.rompecabezas.vocales.u.index');
+    }
+    //
+    //NUMEROS
+    public function indexNUt()
+    {
+        return view('estudiantes.rompecabezas.numeros.1.index');
+    }
+
+    public function indexNDt()
+    {
+        return view('estudiantes.rompecabezas.numeros.2.index');
+    }
+
+    public function indexNTt()
+    {
+        return view('estudiantes.rompecabezas.numeros.3.index');
+    }
+
+    public function indexNCt()
+    {
+        return view('estudiantes.rompecabezas.numeros.4.index');
+    }
+
+    public function indexNCst()
+    {
+        return view('estudiantes.rompecabezas.numeros.5.index');
+    }
+    //
+    //FAMILIA
+    public function indexPat()
+    {
+        return view('estudiantes.rompecabezas.familia.papa.index');
+    }
+
+    public function indexMat()
+    {
+        return view('estudiantes.rompecabezas.familia.mama.index');
+    }
+
+    public function indexHest()
+    {
+        return view('estudiantes.rompecabezas.familia.hermano.index');
+    }
+
+    public function indexAbst()
+    {
+        return view('estudiantes.rompecabezas.familia.abuelo.index');
+    }
+
+    public function indexPrst()
+    {
+        return view('estudiantes.rompecabezas.familia.primo.index');
+    }
+    //ANIMALES
+    public function indexEles()
+    {
+        return view('estudiantes.rompecabezas.animales.elef.index');
+    }
+
+    public function indexGaes()
+    {
+        return view('estudiantes.rompecabezas.animales.gallo.index');
+    }
+
+    public function indexGast()
+    {
+        return view('estudiantes.rompecabezas.animales.gato.index');
+    }
+
+    public function indexPees()
+    {
+        return view('estudiantes.rompecabezas.animales.perro.index');
+    }
+
+    public function indexVast()
+    {
+        return view('estudiantes.rompecabezas.animales.vaca.index');
+    }
+    //
 }

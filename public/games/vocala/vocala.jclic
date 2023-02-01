@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JClicProject name="vocala" version="0.1.3">
+ <settings>
+  <title>vocalA</title>
+  <revision description="created" date="6/10/21" />
+  <description>
+   <p>Este es el rompecabezas de la letra A</p>
+  </description>
+  <descriptors />
+  <meta_langs>es</meta_langs>
+  <descriptions>
+   <description language="es">
+    <p>Este es el rompecabezas de la letra A</p>
+   </description>
+  </descriptions>
+  <license type="by-nc-sa" url="https://creativecommons.org/licenses/by-nc-sa/4.0" />
+ </settings>
+ <sequence>
+  <item id="start" name="Rompecabezas letra A" />
+ </sequence>
+ <activities>
+  <activity class="@puzzles.ExchangePuzzle" name="Rompecabezas letra A" code="let_a">
+   <description>
+    <p>Este es un ejercicio para la vocal A</p>
+   </description>
+   <messages>
+    <cell type="initial">
+     <style />
+     <p>Realiza el siguiente rompecabezas.!!!!</p>
+    </cell>
+    <cell type="final">
+     <style />
+     <p>Excenlente trabajo!!!</p>
+    </cell>
+    <cell type="finalError">
+     <style />
+     <p>Intentalo de nuevo</p>
+    </cell>
+   </messages>
+   <settings margin="5" dragCells="true" report="true" reportActions="false">
+    <container bgColor="0xC0C0C0">
+     <image name="fondo.jpg" tiled="true" />
+     <counters time="true" actions="true" score="true" />
+    </container>
+    <window bgColor="0xC0C0C0" border="true" />
+   </settings>
+   <cells rows="4" cols="4" border="true" image="71J3DLVNRvL._AC_SX425_.jpg">
+    <style />
+    <shaper class="@Rectangular" cols="4" rows="4" />
+   </cells>
+   <scramble times="31" />
+  </activity>
+ </activities>
+ <mediaBag>
+  <media name="71J3DLVNRvL._AC_SX425_.jpg" file="71j3dlvnrvl._ac_sx425_.jpg" />
+  <media name="fondo.jpg" file="fondo.jpg" />
+ </mediaBag>
+</JClicProject>
+
