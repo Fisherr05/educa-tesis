@@ -1,5 +1,11 @@
 @extends('layouts.estudiantes.app')
-@section('titulo','Letra A')
+@section('titulo','Numero 4')
 @section('contenido')
-<h1>Numero 4 Juego</h1>
+<section id="services" class="section-bg">
+    <div class="container">
+    <br>
+       <h1>Numero 4</h1>
+       <iframe src="{{ URL::to('/games/numeros/numero4/index.html') }}" width="100%" height="700" allowFullScreen="true"></iframe>
+    </div>
+</section>
 @endsection

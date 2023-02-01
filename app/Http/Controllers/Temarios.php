@@ -151,12 +151,12 @@ class Temarios extends Controller
     //FAMILIA
     public function indexPat()
     {
-        return view('estudiantes.rompecabezas.familia.papa.index');
+        return view('estudiantes.rompecabezas.familia.padre.index');
     }
 
     public function indexMat()
     {
-        return view('estudiantes.rompecabezas.familia.mama.index');
+        return view('estudiantes.rompecabezas.familia.madre.index');
     }
 
     public function indexHest()
@@ -176,7 +176,7 @@ class Temarios extends Controller
     //ANIMALES
     public function indexEles()
     {
-        return view('estudiantes.rompecabezas.animales.elef.index');
+        return view('estudiantes.rompecabezas.animales.elefante.index');
     }
 
     public function indexGaes()
