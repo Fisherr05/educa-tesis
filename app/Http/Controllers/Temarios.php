@@ -123,78 +123,78 @@ class Temarios extends Controller
     }
     //
     //NUMEROS
-    public function indexNUt()
+    public function indexNU()
     {
         return view('estudiantes.rompecabezas.numeros.1.index');
     }
 
-    public function indexNDt()
+    public function indexND()
     {
         return view('estudiantes.rompecabezas.numeros.2.index');
     }
 
-    public function indexNTt()
+    public function indexNT()
     {
         return view('estudiantes.rompecabezas.numeros.3.index');
     }
 
-    public function indexNCt()
+    public function indexNC()
     {
         return view('estudiantes.rompecabezas.numeros.4.index');
     }
 
-    public function indexNCst()
+    public function indexNCC()
     {
         return view('estudiantes.rompecabezas.numeros.5.index');
     }
     //
     //FAMILIA
-    public function indexPat()
+    public function indexPa()
     {
         return view('estudiantes.rompecabezas.familia.padre.index');
     }
 
-    public function indexMat()
+    public function indexMa()
     {
         return view('estudiantes.rompecabezas.familia.madre.index');
     }
 
-    public function indexHest()
+    public function indexHer()
     {
         return view('estudiantes.rompecabezas.familia.hermano.index');
     }
 
-    public function indexAbst()
+    public function indexAbu()
     {
         return view('estudiantes.rompecabezas.familia.abuelo.index');
     }
 
-    public function indexPrst()
+    public function indexPri()
     {
         return view('estudiantes.rompecabezas.familia.primo.index');
     }
     //ANIMALES
-    public function indexEles()
+    public function indexElef()
     {
         return view('estudiantes.rompecabezas.animales.elefante.index');
     }
 
-    public function indexGaes()
+    public function indexGall()
     {
         return view('estudiantes.rompecabezas.animales.gallo.index');
     }
 
-    public function indexGast()
+    public function indexGat()
     {
         return view('estudiantes.rompecabezas.animales.gato.index');
     }
 
-    public function indexPees()
+    public function indexPerr()
     {
         return view('estudiantes.rompecabezas.animales.perro.index');
     }
 
-    public function indexVast()
+    public function indexVac()
     {
         return view('estudiantes.rompecabezas.animales.vaca.index');
     }
